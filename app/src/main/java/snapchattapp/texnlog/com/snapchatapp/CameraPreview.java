@@ -1,8 +1,7 @@
-package demo.customcamera;
+package snapchattapp.texnlog.com.snapchatapp;
 
 import android.content.Context;
 import android.hardware.Camera;
-import android.util.AttributeSet;
 import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -20,11 +19,8 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
     public CameraPreview(Context context, Camera camera) {
         super(context);
         customCam=camera;
-
-
         sHolder=getHolder();
         sHolder.addCallback(this);
-
         sHolder.setType(SurfaceHolder.SURFACE_TYPE_PUSH_BUFFERS);
     }
 
@@ -52,6 +48,11 @@ public class CameraPreview extends SurfaceView implements SurfaceHolder.Callback
 
     @Override
     public void surfaceDestroyed(SurfaceHolder holder) {
-
+        if (customCam != null) {
+            customCam.stopPreview();
+            customCam.setPreviewCallback(null);
+            customCam.release();
+            customCam = null;
+        }
     }
 }
