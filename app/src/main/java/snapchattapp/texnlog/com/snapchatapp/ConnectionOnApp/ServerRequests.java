@@ -1,4 +1,4 @@
-package snapchattapp.texnlog.com.snapchatapp;
+package snapchattapp.texnlog.com.snapchatapp.ConnectionOnApp;
 
 import android.app.ProgressDialog;
 import android.content.Context;
