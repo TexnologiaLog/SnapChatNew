@@ -6,19 +6,43 @@
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <uses-feature android:name="android.hardware.camera" />
 
     <activity android:name="com.example.barcode.CatalogActivity" />
+
+
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="SnapChatApp"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme">
+
+
+
+
         <activity
-            android:name=".Camera.TestingCameraActivity"
+            android:name=".UserConnection.register"
+            android:label="@string/title_activity_rgister"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".UserConnection.login"
+            android:label="@string/title_activity_login"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".Camera.PhotoPreview"
+            android:screenOrientation="portrait"
+            android:theme="@style/AlertDialog.AppCompat"></activity>
+        <activity
+            android:name=".Camera.TestingCameraActivity">
+
+        </activity>
+
+        <activity android:name=".UserConnection.MainActivity"
+
             android:label="SnapChatApp"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" >
@@ -29,31 +53,30 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ConnectionOnApp.register"
-            android:label="@string/title_activity_rgister"
-            android:theme="@style/AppTheme.NoActionBar" >
-        </activity>
-        <activity
-            android:name=".ConnectionOnApp.login"
-            android:label="@string/title_activity_login"
-            android:theme="@style/AppTheme.NoActionBar" >
-        </activity>
-        <activity
-            android:name=".Camera.PhotoPreview"
+            android:name=".UploadImg.Upload"
             android:screenOrientation="portrait"
-            android:theme="@style/AlertDialog.AppCompat" >
+            android:theme="@style/Theme.AppCompat" >
         </activity>
-        <!--
         <activity
-            android:name=".TestingCameraActivity"
-            android:theme="@style/AlertDialog.AppCompat"
+            android:name=".UploadImg.FriendsPanel"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat" >
+        </activity>
+        <activity
+            android:name=".Friends_Users.SearchScreenActivity"
             android:screenOrientation="portrait">
         </activity>
-        -->
         <activity
-            android:name=".Camera.SettingsActivity"
-            android:label="@string/title_activity_settings" >
+            android:name=".Friends_Users.DetailsScreenActivity"
+            android:screenOrientation="portrait">
         </activity>
+        <activity
+            android:name=".Friends_Users.FriendsScreenActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".Friends_Users.UserProfileScreen"
+            android:screenOrientation="portrait"/>
     </application>
+
 
 </manifest>

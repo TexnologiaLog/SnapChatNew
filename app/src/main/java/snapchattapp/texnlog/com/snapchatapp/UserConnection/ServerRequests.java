@@ -1,8 +1,9 @@
-package snapchattapp.texnlog.com.snapchatapp.ConnectionOnApp;
+package snapchattapp.texnlog.com.snapchatapp.UserConnection;
 
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.os.AsyncTask;
+import android.util.Log;
 
 
 import org.apache.http.HttpEntity;
@@ -27,7 +28,7 @@ import java.util.ArrayList;
 public class ServerRequests {
     ProgressDialog progressDialog;
     public static final int CONNECTION_TIMEOUT = 1000 * 15;
-    public static final String SERVER_ADDRESS = "http://projectdb.esy.es/";
+    public static final String SERVER_ADDRESS = "http://projectdb.esy.es";
 
     public ServerRequests(Context context) {
         progressDialog = new ProgressDialog(context);
@@ -113,7 +114,8 @@ public class ServerRequests {
 
 
             HttpClient client = new DefaultHttpClient(httpRequestParams);
-            HttpPost post = new HttpPost(SERVER_ADDRESS + "FetchUserData.php");
+            HttpPost post = new HttpPost(SERVER_ADDRESS + "/Android/FetchUserData.php");
+            //HttpPost post=new HttpPost("http://192.168.1.4/Android/FetchUserData.php");  ///         CHANGE FOR LOCAL TESTING
 
             User returnedUser = null;
             try {
@@ -122,15 +124,21 @@ public class ServerRequests {
 
                 HttpEntity entity = httpResponse.getEntity();
                 String result = EntityUtils.toString(entity);
+                Log.d("ServerRequest..Response",result );
                 JSONObject JObject = new JSONObject(result);
+
 
                 if (JObject.length() == 0) {
                     returnedUser = null;
                 }else{
                     String name =JObject.getString("name");
-                    int age =JObject.getInt("age");
+                    String age =JObject.getString("age");
+                    String id=JObject.getString("user_id");
+                    String username=JObject.getString("username");
+                    String password=JObject.getString("password");
+                    String photo=JObject.getString("photo");
 
-                    returnedUser = new User (name, age, user.username, user.password);
+                    returnedUser = new User (id,name,age,username,password,photo);
 
                 }
 

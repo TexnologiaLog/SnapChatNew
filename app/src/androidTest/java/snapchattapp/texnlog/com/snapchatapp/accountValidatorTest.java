@@ -5,7 +5,7 @@ import junit.framework.TestCase;
 
 import org.junit.Test;
 
-import snapchattapp.texnlog.com.snapchatapp.ConnectionOnApp.accountValidator;
+import snapchattapp.texnlog.com.snapchatapp.UserConnection.accountValidator;
 
 
 /**

@@ -1,4 +1,4 @@
-package snapchattapp.texnlog.com.snapchatapp.ConnectionOnApp;
+package snapchattapp.texnlog.com.snapchatapp.UserConnection;
 
 /**
  * Created by Charis on 6/11/2015.

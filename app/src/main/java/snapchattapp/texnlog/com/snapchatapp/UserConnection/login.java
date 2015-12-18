@@ -1,4 +1,4 @@
-package snapchattapp.texnlog.com.snapchatapp.ConnectionOnApp;
+package snapchattapp.texnlog.com.snapchatapp.UserConnection;
 
 import android.app.AlertDialog;
 import android.content.Intent;

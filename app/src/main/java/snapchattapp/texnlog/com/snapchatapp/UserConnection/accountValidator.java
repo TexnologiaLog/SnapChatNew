@@ -1,4 +1,4 @@
-package snapchattapp.texnlog.com.snapchatapp.ConnectionOnApp;
+package snapchattapp.texnlog.com.snapchatapp.UserConnection;
 
 /**
  * Created by thomas on 10/11/2015.
@@ -8,7 +8,7 @@ public class accountValidator {
 
     //Method that calls the rest of the account checks and reports its results to register.
     public boolean isRegisterValid(User user){
-        boolean ageCheck = isAgeValid(user.age);
+        boolean ageCheck = isAgeValid(Integer.parseInt(user.age));
         if(ageCheck == false)
             return false;
 
